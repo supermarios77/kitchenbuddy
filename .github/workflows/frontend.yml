@@ -22,7 +22,7 @@ jobs:
         cache: 'npm'
 
     - name: Change directory to frontend
-      working-directory: frontend
+      working-directory: ./frontend
       run: cd frontend
 
     - name: Install dependencies
