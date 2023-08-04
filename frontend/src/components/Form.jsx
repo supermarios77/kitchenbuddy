@@ -23,7 +23,7 @@ function Form() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://kitchenbuddy-backend.onrender.com", {
+      const response = await fetch("https://kitchenbuddy-backend.onrender.com:5000", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

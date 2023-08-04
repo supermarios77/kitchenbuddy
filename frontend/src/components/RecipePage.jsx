@@ -11,7 +11,7 @@ function RecipePage() {
     const fetchRecipe = async () => {
       try {
         const response = await fetch(
-          `http://kitchenbuddy-backend.onrender.comrecipes/${recipeId}`
+          `https://kitchenbuddy-backend.onrender.com:5000/recipes/${recipeId}`
         );
         if (response.ok) {
           const data = await response.json();
