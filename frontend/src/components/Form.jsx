@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import RecipeCard from './RecipeCard';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import RecipeCard from "./RecipeCard";
 
 function Form() {
   const [formData, setFormData] = useState({
-    includeIngredients: '',
-    excludeIngredients: '',
-    cuisine: '',
+    includeIngredients: "",
+    excludeIngredients: "",
+    cuisine: "",
   });
 
   const [fetchedRecipes, setFetchedRecipes] = useState([]);
@@ -23,23 +23,23 @@ function Form() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/', {
-        method: 'POST',
+      const response = await fetch("http://kitchenbuddy-backend.onrender.com", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Fetched Recipes:', data);
+        console.log("Fetched Recipes:", data);
         setFetchedRecipes(data);
       } else {
-        console.error('Error fetching recipes');
+        console.error("Error fetching recipes");
       }
     } catch (error) {
-      console.error('Error fetching recipes', error);
+      console.error("Error fetching recipes", error);
     }
   };
 
@@ -86,7 +86,9 @@ function Form() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className='btn btn-warning'>Search</button>
+        <button type="submit" className="btn btn-warning">
+          Search
+        </button>
       </form>
       <div className="recipe-cards-container">
         {fetchedRecipes.length > 0 ? (
@@ -96,7 +98,7 @@ function Form() {
             </Link>
           ))
         ) : (
-          <p className='P'>No recipes found.</p>
+          <p className="P">No recipes found.</p>
         )}
       </div>
     </div>
